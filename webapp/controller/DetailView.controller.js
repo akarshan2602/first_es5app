@@ -31,6 +31,7 @@ sap.ui.define([
             // oApp.to("idList");
             let oRouter = this.getOwnerComponent().getRouter();
             oRouter.navTo("RouteMasterView");
+            console.log(oRouter.navTo("RouteMasterView"));
         }
 
     });

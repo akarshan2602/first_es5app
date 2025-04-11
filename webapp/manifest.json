@@ -61,44 +61,56 @@
       ]
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "transition": "slide",
-        "type": "View",
-        "viewType": "XML",
-        "path": "app.splitapp.view",
-        "async": true,
-        "viewPath": "app.splitapp.view"
-      },
-      "routes": [
-        {
-          "name": "RouteMasterView",
-          "pattern": ":?query:",
-          "target": [
-            "TargetMasterView"
-          ]
-        },
-        {
-          "name": "RouteDetail",
-          "pattern": "view2/{index}",
-          "target": [
-            "TargetDetail"
-          ]
-        }
-      ],
-      "targets": {
-        "TargetMasterView": {
-          "id": "MasterView",
-          "name": "MasterView"
-        },
-        "TargetDetail": {
-          "id": "idDetail",
-          "name": "DetailView"
-        }
-      }
+  "config": {
+    "routerClass": "sap.m.routing.Router",
+    "controlAggregation": "pages",
+    "controlId": "app",
+    "transition": "slide",
+    "type": "View",
+    "viewType": "XML",
+    "path": "app.splitapp.view",
+    "async": true,
+    "viewPath": "app.splitapp.view"
+  },
+  "routes": [
+    {
+      "name": "RouteMasterView",
+      "pattern": ":?query:",
+      "target": [
+        "TargetMasterView",
+        "TargetEmpty"
+      ]
     },
+    {
+      "name": "RouteDetail",
+      "pattern": "view2/{index}",
+      "target": [
+        "TargetDetail"
+      ]
+    }
+  ],
+  "targets": {
+    "TargetMasterView": {
+      "id": "MasterView",
+      "controlAggregation": "masterPages",
+      "name": "MasterView",
+      "viewLevel": 1
+    },
+    "TargetDetail": {
+      "id": "idDetail",
+      "controlAggregation": "detailPages",
+      "name": "DetailView",
+      "viewLevel": 2
+    },
+    "TargetEmpty": {
+      "id": "idEmpty",
+      "name": "EmptyView",
+      "controlAggregation": "detailPages",
+      "viewLevel": 1
+    }
+  }
+},
+
     "rootView": {
       "viewName": "app.splitapp.view.App",
       "type": "XML",
