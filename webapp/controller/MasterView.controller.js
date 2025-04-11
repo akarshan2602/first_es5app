@@ -4,19 +4,17 @@ sap.ui.define([
     "sap/ui/model/Sorter",
     "sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], (Controller, JSONModel, Sorter,Filter, FilterOperator) => {
+], (Controller, Sorter,Filter, FilterOperator) => {
     "use strict";
 
     return Controller.extend("app.splitapp.controller.MasterView", {
         // onInit() {
-            
+        //     var oModel = new JSONModel("/model/MockData/toolsData.json");
+        //     this.getView().setModel(oModel, 'ToolModel');
         // },
         onDetailView: function(id){
-            console.log(id)
-            let oRouter= this.getOwnerComponent().getRouter();
-            oRouter.navTo("RouteDetail",{
-                index:id
-            })
+            let oRouter= this.getOwnerComponent().getRouter()
+            oRouter.navTo("RouteDetailView")
         },
         onSort: function(){
             if(this.bDescending===undefined){
