@@ -1,0 +1,23 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="app.splitapp.controller.DetailView"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Detail View" showNavButton="true" navButtonPress="onListView">
+				<content>
+					<VBox>
+						<HBox>
+							<Label text="tools Name:"></Label>
+							<Text text="{ToolModel>toolsName}"></Text>
+						</HBox>
+					</VBox>
+					<VBox>
+						<HBox>
+							<Label text="Weight:"></Label>
+							<Text text="{ToolModel>weight}"></Text>
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

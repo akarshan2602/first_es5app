@@ -1,0 +1,41 @@
+<mvc:View controllerName="app.splitapp.controller.MasterView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="List View">
+        <headerContent>
+            <Button icon="sap-icon://sort" press="onSort"/>
+            <Button icon="sap-icon://action" tooltip="Share" press="onDetailView"/>
+        </headerContent>
+        <subHeader>
+            <OverflowToolbar>
+                <SearchField search="onSearch" liveChange="onSearch"/>
+            </OverflowToolbar>
+        </subHeader>
+        <content>
+            <List id="idtool" items="{ToolModel>/toolDetails/}" mode="SingleSelectMaster" selectionChange="onItemSelect">
+                <items>
+                    <ObjectListItem icon="{ToolModel>image}" intro="{ToolModel>toolsName}" number="{parts:[{path:'ToolModel>price'},{path:'ToolModel>unit'}],
+                    formatter:'.someVariable.formatUnit'}">
+                        <attributes>
+                            <ObjectAttribute text="{ToolModel>weight}" title="weight"></ObjectAttribute>
+                            <ObjectAttribute text="{ToolModel>warranty}" title="Warranty"></ObjectAttribute>
+                        </attributes>
+                        <firstStatus>
+                            <ObjectStatus text="{ToolModel>availability}" title="Availability"
+                                        state="{= ${ToolModel>availability} === 'In Stock' ? 'Success' : 'Error'}" />
+                        </firstStatus>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="Accept" type="Accept"/>
+                <Button text="Reject" type="Reject"/>
+                <Button text="Edit"/>
+                <Button text="Delete"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
