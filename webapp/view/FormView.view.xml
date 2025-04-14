@@ -1,0 +1,35 @@
+<mvc:View controllerName="app.splitapp.controller.FormView"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:unified="sap.ui.unified"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="idForm" title="Form To Add New Tools" showNavButton="true" navButtonPress="onListView">
+        <f:SimpleForm>
+            <Label text="Toolsname"></Label>
+            <Input id='idinp1'></Input>
+            <Label text="Uses"></Label>
+            <Input id='idinp2'></Input>
+            <Label text="Availability"></Label>
+            <Input id='idinp3'></Input>
+            <Label text="Price (INR)"></Label>
+            <Input id='idinp4'></Input>
+            <Label text="Unit"></Label>
+            <Input id='idinp5'></Input>
+            <Label text="Image"></Label>
+            <unified:FileUploader id="fileUploader" width="200px" height="200px" change="onFileChange" />
+            <Label text="Weight"></Label>
+            <Input id='idinp6' ></Input>
+            <Select id="idWeightUnit" width="80px">
+                <items>
+                    <core:Item key="kg" text="KG"/>
+                    <core:Item key="lb" text="LBS"/>
+                </items>
+            </Select>
+            <Label text="Warranty (Years)"></Label>
+            <Input id='idinp7'></Input>
+            <Button text="ADD" press="onPress"></Button>
+        </f:SimpleForm>
+    </Page>
+</mvc:View>
