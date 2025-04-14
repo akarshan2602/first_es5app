@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.17.1",
-      "toolsId": "9bb9c52a-1aaf-4972-a16e-cb5ee6025c01"
+      "toolsId": "6cc58df6-7637-4532-8195-2eb7921dfec5"
     }
   },
   "sap.ui": {
@@ -51,6 +51,9 @@
         "settings": {
           "bundleName": "app.splitapp.i18n.i18n"
         }
+      },
+      "TestModel":{
+        "type":"sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -75,27 +78,49 @@
       "routes": [
         {
           "name": "RouteMasterView",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
-            "TargetMasterView"
+            "TargetMasterView" , "TargetEmptyView"
           ]
         },
         {
-          "name": "RouteDetail",
+          "name": "RouteDetailView",
           "pattern": "view2/{index}",
           "target": [
             "TargetDetail"
           ]
+        },
+        {
+          "name": "RouteFormView",
+          "pattern": "RouteFormView",
+          "target":["TargetForm"]
         }
       ],
       "targets": {
         "TargetMasterView": {
           "id": "MasterView",
-          "name": "MasterView"
+          "controlAggregation": "masterPages",
+          "name": "MasterView",
+          "viewLevel":1
         },
-        "TargetDetail": {
-          "id": "idDetail",
-          "name": "DetailView"
+        "TargetDetail":{
+          "id":"idDetail",
+          "name":"DetailView",
+          "controlAggregation": "detailPages",
+          "viewLevel":2
+ 
+        },
+        "TargetEmptyView":{
+          "id":"idEmpty",
+          "name": "EmptyView",
+          "controlAggregation": "detailPages",
+          "viewlevel": 1
+        },
+        "TargetForm":{
+          "id":"idForm",
+          "name":"FormView",
+          "controlAggregation": "detailPages",
+          "viewLevel":2
         }
       }
     },
@@ -107,3 +132,4 @@
     }
   }
 }
+ 
